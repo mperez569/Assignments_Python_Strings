@@ -10,12 +10,12 @@ reviews = [
 
 keywords = ["good", "excellent", "bad", "Poor", "average"]
 
-def highlight_keywords(reviews, keywords):
+def highlight(reviews, keywords):
     for review in reviews:
         for keyword in keywords:
             review = review.replace(keyword, keyword.upper())
         print(review)
-highlight_keywords(reviews, keywords)
+highlight(reviews, keywords)
 
 #Task 2: Sentiment Tally
 positive_words = ["good", "excellent", "great", "awesome", "fantastic", "superb", "amazing"]
