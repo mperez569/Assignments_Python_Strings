@@ -26,7 +26,7 @@ def sentiment_tally(reviews, positive_words, negative_words):
     total_negative = 0
     
     for review in reviews:
-        review_lower = review.lower()  # Convert review to lowercase for case insensitive matching
+        review_lower = review.lower()  
         for word in positive_words:
             total_positive += review_lower.count(word)
         for word in negative_words:
@@ -35,22 +35,39 @@ def sentiment_tally(reviews, positive_words, negative_words):
     return total_positive, total_negative
 
 positive_count, negative_count = sentiment_tally(reviews, positive_words, negative_words)
-print(f"Total positive words: {positive_count}")
-print(f"Total negative words: {negative_count}")
+print("Total positive words: " + positive_count)
+print("Total negative words: " + negative_count)
 
 #Task 3: Review Summary
-
 def create_summary(review, length=30):
     if len(review) <= length:
         return review
     
     end = length
-    if review[length] != " ":
-        while end > 0 and review[end] != " ":
-            end -= 1
+    while end < len(review) and review[end] != " ":
+        end += 1
     
-    summary = review[:end] + "…" if end > 0 else review[:length] + "…"
+    summary = review[:end] + "…" if end < len(review) else review
     return summary
 
 for review in reviews:
     print(create_summary(review))
+
+######
+#2. User Input Data Processor
+#Task 1: Input Length Validator
+def name_length():
+    first_name = input("Enter your first name: ")
+    last_name = input("Enter your last name: ")
+    
+    if len(first_name) < 2:
+        print("Error: First name must be at least 2 characters long.")
+    if len(last_name) < 2:
+        print("Error: Last name must be at least 2 characters long.")
+    
+    if len(first_name) >= 2 and len(last_name) >= 2:
+        print("First name and last name are valid.")
+
+name_length()
+
+
