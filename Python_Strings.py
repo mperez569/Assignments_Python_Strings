@@ -35,8 +35,8 @@ def sentiment_tally(reviews, positive_words, negative_words):
     return total_positive, total_negative
 
 positive_count, negative_count = sentiment_tally(reviews, positive_words, negative_words)
-print("Total positive words: " + positive_count)
-print("Total negative words: " + negative_count)
+print("Total positive words: " + str(positive_count))
+print("Total negative words: " + str(negative_count))
 
 #Task 3: Review Summary
 def create_summary(review, length=30):
@@ -52,7 +52,7 @@ def create_summary(review, length=30):
 
 for review in reviews:
     print(create_summary(review))
-
+    
 ######
 #2. User Input Data Processor
 #Task 1: Input Length Validator
